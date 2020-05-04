@@ -22,9 +22,19 @@ const useStyles = makeStyles((theme) => ({
   });
   return ret;
   }
-  function Header(){
+  var login = false;
+  var register = false;
+  
+  function Header(props){
     const classes = useStyles();
     var logged = useIslogged();
+
+    function Handlelog(event){
+      props.Handlelogin();      
+    }
+    function handlereg(event){
+      props.Handleregister();
+    }
 
     return (<div className={classes.root}>
             <AppBar position="static">
@@ -32,12 +42,12 @@ const useStyles = makeStyles((theme) => ({
           <Typography variant="h6" className={classes.title}>
             Trello
           </Typography>
-          <Button variant="contained" color="secondary">{logged ? 'Logout' : 'Login' }</Button>
-          {!logged && <Button className={classes.btn} variant="contained" color="secondary">Register</Button>}
+          <Button variant="contained" color="secondary" onClick={Handlelog}>{logged ? 'Logout' : 'Login' }</Button>
+          {!logged && <Button className={classes.btn} onClick={handlereg} variant="contained" color="secondary">Register</Button>}
         </Toolbar>
       </AppBar>
     </div>);
 }
 
 export default Header;
-export {useIslogged};
+export {useIslogged,login,register};
