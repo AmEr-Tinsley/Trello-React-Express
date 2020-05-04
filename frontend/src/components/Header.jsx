@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {AppBar,Toolbar,Typography,Button} from '@material-ui/core';
 import { yellow, red } from "@material-ui/core/colors";
+import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      backgroundColor : "red",
     },
     title: {
       flexGrow: 1,
@@ -14,9 +14,18 @@ const useStyles = makeStyles((theme) => ({
         marginLeft : 10,
     }
   }));
-function Header(){
+  function useIslogged(){
+    const [ret,setret] = useState(false);
+    axios.get("/isLoggedIn")
+    .then(res => {
+      setret(res.data.response);
+  });
+  return ret;
+  }
+  function Header(){
     const classes = useStyles();
-    var logged = false;
+    var logged = useIslogged();
+
     return (<div className={classes.root}>
             <AppBar position="static">
         <Toolbar>
@@ -31,3 +40,4 @@ function Header(){
 }
 
 export default Header;
+export {useIslogged};

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {Paper,Grid,Card,CardActionArea,CardMedia,CardContent,Typography } from '@material-ui/core';
 import { red } from "@material-ui/core/colors";
+import {useIslogged} from "./Header";
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -25,8 +26,9 @@ function Content(){
     const classes = useStyles();
     const [projects,Setprojects] = useState(false);
     const [learn,Setlearn] = useState(false);
+    console.log(useIslogged());
     return(<div className={classes.root}>
-            <Grid container spacing={50}>
+            <Grid container>
                 <Grid item xs={12} sm={6}>
                     <div className={classes.paper}>
                     <Card className={classes.Cardroot}>
