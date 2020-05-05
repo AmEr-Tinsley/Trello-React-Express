@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {Paper,Grid,Card,CardActionArea,CardMedia,CardContent,Typography } from '@material-ui/core';
-import { red } from "@material-ui/core/colors";
+import Zoom from '@material-ui/core/Zoom';
+import jwt_decode from 'jwt-decode'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,7 +25,10 @@ const useStyles = makeStyles((theme) => ({
   }));
 function Home(){
     const classes = useStyles();
+    var token = localStorage.usertoken;
+    const decoded = token ? jwt_decode(token) : null;
     return (
+        <Zoom in = {true}>
         <div className={classes.root}>
             <Grid container>
                 <Grid item xs={12} sm={6}>
@@ -73,6 +77,7 @@ function Home(){
                 </Grid>
                 </Grid>
             </div>
+            </Zoom>
     );
 }
 

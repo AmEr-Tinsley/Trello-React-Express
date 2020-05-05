@@ -9,8 +9,9 @@ import Login from "./Login";
 import register from "./Register"
 import Register from "./Register";
 function App(){
-    const [login,Setlogin] = useState(false);
+    const [login,Setlogin] = useState(true);
     const [register,Setregister] = useState(false);
+    const [refirect,Setredirect] = useState(false);
     function Handlelogin(){
         Setlogin(true);
         Setregister(false);
@@ -19,16 +20,30 @@ function App(){
         Setregister(true);
         Setlogin(false);
     }
+    function redirect(){
+        if(refirect)
+            Setredirect(false);
+        else    Setredirect(true);
+        if(localStorage.usertoken){
+            Setlogin(false);
+            Setregister(false);
+        }
+        else{
+            Setlogin(true);
+            Setregister(false);
+        }
+        
+    }
     return (
         <div>
         <Grid container direction="column">
             <Grid item>
-                <Header  Handlelogin = {Handlelogin} Handleregister = {Handleregister}/>
+                <Header  Handlelogin = {Handlelogin} Handleregister = {Handleregister} redirect = {redirect}/>
             </Grid>
         <Grid item container>
             <Grid item xs={false} sm={2} />
             <Grid item xs={12} sm={8}>
-            {login && <Login/>}
+            {login && <Login redirect = {redirect}/>}
             {register && <Register/>}
             {!login && !register && <Home/>}
             

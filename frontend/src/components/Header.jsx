@@ -14,24 +14,23 @@ const useStyles = makeStyles((theme) => ({
         marginLeft : 10,
     }
   }));
-  function useIslogged(){
-    const [ret,setret] = useState(false);
-    axios.get("/isLoggedIn")
-    .then(res => {
-      setret(res.data.response);
-  });
-  return ret;
-  }
+  
   var login = false;
   var register = false;
   
   function Header(props){
     const classes = useStyles();
-    var logged = useIslogged();
+    
 
     function Handlelog(event){
-      props.Handlelogin();      
-    }
+      if(!localStorage.usertoken)
+        props.Handlelogin();
+      else{
+        localStorage.removeItem('usertoken');
+        props.redirect();  
+      }
+      
+   }
     function handlereg(event){
       props.Handleregister();
     }
@@ -42,12 +41,12 @@ const useStyles = makeStyles((theme) => ({
           <Typography variant="h6" className={classes.title}>
             Trello
           </Typography>
-          <Button variant="contained" color="secondary" onClick={Handlelog}>{logged ? 'Logout' : 'Login' }</Button>
-          {!logged && <Button className={classes.btn} onClick={handlereg} variant="contained" color="secondary">Register</Button>}
+          <Button variant="contained" color="secondary" onClick={Handlelog}>{localStorage.usertoken ? 'Logout' : 'Login' }</Button>
+          {!localStorage.usertoken && <Button className={classes.btn} onClick={handlereg} variant="contained" color="secondary">Register</Button>}
         </Toolbar>
       </AppBar>
     </div>);
 }
 
 export default Header;
-export {useIslogged,login,register};
+export {login,register};
