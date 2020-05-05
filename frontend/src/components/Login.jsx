@@ -34,7 +34,7 @@ function Login(props){
   }
   function Submit(event){
       event.preventDefault();
-      axios.post("users/login",{email:form.username,password:form.password})
+      axios.post("users/login",{username:form.username,password:form.password})
       .then(res => {
         console.log(res.data);
         
@@ -51,7 +51,7 @@ function Login(props){
           <br/>
           <Input type="password" placeholder="password" name = "password" onChange={handleChange} />
           <br/>
-          <Button type = "submit" variant="contained"color="primary">Submit</Button>
+          <Button type = "submit" variant="contained"color="primary">SIGN IN</Button>
       </form>
   </Zoom>
        

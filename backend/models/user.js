@@ -3,11 +3,9 @@ const Schema = mongoose.Schema
 
 // Create Schema
 const UserSchema = new Schema({
-  first_name: {
-    type: String
-  },
-  last_name: {
-    type: String
+  username:{
+    type: String,
+    required: true
   },
   email: {
     type: String,
@@ -20,6 +18,14 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  projects:{
+    type:Array,
+    default : []
+  },
+  learn:{
+    type:Array,
+    default:[]
   }
 })
 

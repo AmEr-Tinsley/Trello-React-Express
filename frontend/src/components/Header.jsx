@@ -41,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
           <Typography variant="h6" className={classes.title}>
             Trello
           </Typography>
-          <Button variant="contained" color="secondary" onClick={Handlelog}>{localStorage.usertoken ? 'Logout' : 'Login' }</Button>
-          {!localStorage.usertoken && <Button className={classes.btn} onClick={handlereg} variant="contained" color="secondary">Register</Button>}
+          <Button variant="contained" color="secondary" onClick={Handlelog}>{localStorage.usertoken ? 'SIGN OUT' : 'SIGN IN' }</Button>
+          {!localStorage.usertoken && <Button className={classes.btn} onClick={handlereg} variant="contained" color="secondary">SIGN UP</Button>}
         </Toolbar>
       </AppBar>
     </div>);

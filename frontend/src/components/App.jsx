@@ -43,9 +43,9 @@ function App(){
         <Grid item container>
             <Grid item xs={false} sm={2} />
             <Grid item xs={12} sm={8}>
-            {login && <Login redirect = {redirect}/>}
-            {register && <Register/>}
-            {!login && !register && <Home/>}
+            {login && !localStorage.usertoken  && <Login redirect = {redirect}/>}
+            {register && <Register Handlelogin = {Handlelogin}/>}
+            {localStorage.usertoken && <Home/>}
             
             </Grid>
             <Grid item xs={false} sm={2} />

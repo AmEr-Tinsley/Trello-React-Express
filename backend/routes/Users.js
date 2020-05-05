@@ -12,15 +12,16 @@ process.env.SECRET_KEY = 'secret'
 users.post('/register', (req, res) => {
   const today = new Date()
   const userData = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+    username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-    created: today
+    created: today,
+    projects:[],
+    learn : []
   }
 
   User.findOne({
-    email: req.body.email
+    username: req.body.username
   })
     .then(user => {
       if (!user) {
@@ -28,7 +29,7 @@ users.post('/register', (req, res) => {
           userData.password = hash
           User.create(userData)
             .then(user => {
-              res.json({ status: user.email + 'Registered!' })
+              res.json({ status: user.username + 'Registered!' })
             })
             .catch(err => {
               res.send('error: ' + err)
@@ -45,7 +46,7 @@ users.post('/register', (req, res) => {
 
 users.post('/login', (req, res) => {
   User.findOne({
-    email: req.body.email
+    username: req.body.username
   })
     .then(user => {
       if (user) {
@@ -53,9 +54,10 @@ users.post('/login', (req, res) => {
           // Passwords match
           const payload = {
             _id: user._id,
-            first_name: user.first_name,
-            last_name: user.last_name,
-            email: user.email
+            username: user.username,
+            email: user.email,
+            projects : user.projects,
+            learn : user.learn
           }
           let token = jwt.sign(payload, process.env.SECRET_KEY, {
             expiresIn: 1440

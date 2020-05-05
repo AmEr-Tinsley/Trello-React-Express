@@ -29,6 +29,7 @@ function Home(){
     const decoded = token ? jwt_decode(token) : null;
     return (
         <Zoom in = {true}>
+        
         <div className={classes.root}>
             <Grid container>
                 <Grid item xs={12} sm={6}>

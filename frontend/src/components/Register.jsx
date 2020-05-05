@@ -1,9 +1,9 @@
-import React from "react";
+import React , {useState} from "react";
 import Zoom from '@material-ui/core/Zoom';
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import { Button } from "@material-ui/core";
-
+import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -14,19 +14,47 @@ const useStyles = makeStyles((theme) => ({
     color : "White",
   },
 }));
-function Register(){
+function Register(props){
     const classes = useStyles();
 
+    const [form, setForm] = useState({
+      username: "",
+      email :"",
+      password: ""
+    });
+  function handleChange(event) {
+      const { name, value } = event.target;
+  
+      setForm(prevForm => {
+        return {
+          ...prevForm,
+          [name]: value
+        };
+      });
+  }
+    function Submit(event){
+      event.preventDefault();
+      console.log(form);
+      
+      axios.post("users/register",{username:form.username,email:form.email,password:form.password})
+      .then(res => {
+        console.log(res.data);
+        
+        if(!res.data.error){
+          props.Handlelogin();
+       }
+  });
+  }
     return (
         <Zoom in = {true}>
-            <form className={classes.root} noValidate autoComplete="off">
-                <Input placeholder="Email" name="hamadi" />
+            <form className={classes.root} noValidate autoComplete="off" onSubmit={Submit}>
+                <Input placeholder="Username" name="username" onChange={handleChange} />
                 <br/>
-                <Input placeholder="Username" />
+                <Input placeholder="Email" name="email"  onChange={handleChange}/>
                 <br/>
-                <Input placeholder="password" />
+                <Input placeholder="password" name="password" onChange={handleChange} />
                 <br/>
-                <Button variant="contained" color="primary">Submit</Button>
+                <Button type = "submit" variant="contained" color="primary">SIGN UP</Button>
             </form>
         </Zoom>
        
