@@ -3,8 +3,8 @@ import Zoom from '@material-ui/core/Zoom';
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import { Button } from "@material-ui/core";
-import { login } from "./Header";
 import axios from 'axios';
+import history from '../history';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +24,6 @@ function Login(props){
     });
   function handleChange(event) {
       const { name, value } = event.target;
-  
       setForm(prevForm => {
         return {
           ...prevForm,
@@ -40,13 +39,13 @@ function Login(props){
         
         if(!res.data.error){
           localStorage.setItem('usertoken', res.data)
-          props.redirect();
+          history.push('/');
        }
   });
   }
     return (
       <Zoom in = {true}>
-      <form className={classes.root} noValidate autoComplete="off" onSubmit={Submit}>
+      <form className={classes.root} noValidate autoComplete="off"  onSubmit={Submit}>
           <Input placeholder="Username" name = "username" onChange={handleChange}  />
           <br/>
           <Input type="password" placeholder="password" name = "password" onChange={handleChange} />

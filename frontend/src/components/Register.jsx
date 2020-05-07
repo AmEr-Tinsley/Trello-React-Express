@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import { Button } from "@material-ui/core";
 import axios from 'axios';
+import history from '../history';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -41,7 +43,7 @@ function Register(props){
         console.log(res.data);
         
         if(!res.data.error){
-          props.Handlelogin();
+          history.push('/login');
        }
   });
   }
