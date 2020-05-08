@@ -19,14 +19,20 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  projects:{
-    type:Array,
-    default : []
-  },
-  learn:{
-    type:Array,
-    default:[]
-  }
+  projects:[{
+    name:String,
+    description : String,
+    todo:[String],
+    doing:[String],
+    done:[String]
+  }],
+  learn:[{
+    name: String,
+    description : String,
+    todo:[String],
+    doing:[String],
+    done:[String]
+  }]
 })
 
-module.exports = User = mongoose.model('users', UserSchema)
+module.exports = User = mongoose.model('User', UserSchema)

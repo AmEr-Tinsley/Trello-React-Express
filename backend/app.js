@@ -13,7 +13,7 @@ app.use(
   })
 )
 
-const mongoURI = 'mongodb://localhost:27017/mernloginreg'
+const mongoURI = 'mongodb://localhost:27017/Database'
 
 mongoose
   .connect(
@@ -24,9 +24,9 @@ mongoose
   .catch(err => console.log(err))
 
 var Users = require('./routes/Users')
-
+var Projects = require('./routes/Projects');
 app.use('/users', Users)
-
+app.use('/projects',Projects);
 app.listen(port, function() {
   console.log('Server is running on port: ' + port)
 })

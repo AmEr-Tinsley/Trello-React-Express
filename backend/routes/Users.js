@@ -4,7 +4,7 @@ const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 
-const User = require('../models/User')
+const User = require('../models/users')
 users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
@@ -29,7 +29,7 @@ users.post('/register', (req, res) => {
           userData.password = hash
           User.create(userData)
             .then(user => {
-              res.json({ status: user.username + 'Registered!' })
+              res.json({ status: user.username + ' Registered!' })
             })
             .catch(err => {
               res.send('error: ' + err)

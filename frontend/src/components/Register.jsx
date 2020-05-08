@@ -54,7 +54,7 @@ function Register(props){
                 <br/>
                 <Input placeholder="Email" name="email"  onChange={handleChange}/>
                 <br/>
-                <Input placeholder="password" name="password" onChange={handleChange} />
+                <Input placeholder="password" type = "password" name="password" onChange={handleChange} />
                 <br/>
                 <Button type = "submit" variant="contained" color="primary">SIGN UP</Button>
             </form>

@@ -1,12 +1,12 @@
 import React from "react";
 
-function Projects(){
+function Learn(){
 
     return(
         <div>
-            <h1>Hello here's your projects</h1>
+            <h1>Hello here's your Learning section</h1>
             <p>BLa bla bla bla</p>
         </div>
     );
 }
-export default Projects;
+export default Learn;

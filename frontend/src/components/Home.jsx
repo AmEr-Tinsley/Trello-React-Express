@@ -26,11 +26,13 @@ const useStyles = makeStyles((theme) => ({
   }));
 function Home(props){
     const classes = useStyles();
-   // var token = localStorage.usertoken;
-    //const decoded = jwt_decode(token);
+   
 
     function displayprojects(){
         history.push('/projects');
+    }
+    function displaylearningsection(){
+        history.push('/learn');
     }
     return (
         <Zoom in = {true}>
@@ -60,7 +62,7 @@ function Home(props){
                     </Grid>
                 
                     <Grid item xs={12} sm={6}>
-                        <div className={classes.paper}>
+                        <div className={classes.paper} onClick={displaylearningsection}>
                         <Card className={classes.Cardroot}>
                             <CardActionArea>
                             <CardMedia

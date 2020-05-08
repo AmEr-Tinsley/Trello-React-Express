@@ -6,7 +6,8 @@ import { Grid } from "@material-ui/core";
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
-import Projects from "./Projects";
+import Projects from "./project_section/Projects";
+import Learn from "./Learn";
 import { Router, Route, Link } from 'react-router-dom';
 import history from '../history';
 function App(){
@@ -25,11 +26,11 @@ function App(){
                     <Route exact path = '/login' component = {Login}/>
                     <Route exact path = '/register' component = {Register}/>
                     <Route exact path = '/projects' component = {Projects}/>
+                    <Route exact path = '/learn' component = {Learn}/>
                 
             </Grid>
             <Grid item xs={false} sm={2} />
         </Grid>
-        <Footer/>
         </Grid>
         </Router>
         </div>);
