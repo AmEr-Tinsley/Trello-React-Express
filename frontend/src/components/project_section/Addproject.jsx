@@ -22,11 +22,12 @@ function Addproject(props) {
   }
 
   function Submit(event) {
-    props.onAdd(form);
     Setform({
       title: "",
-      content: ""
+      description: ""
     });
+    setIsexpanded(false);
+    props.add(form)
     event.preventDefault();
   }
   function expand(){

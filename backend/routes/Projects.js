@@ -10,14 +10,25 @@ projects.post('/get' , (req, res) => {
       });
 })
 projects.post('/add',(req,res)=>{
-    const project = {name:"wa",description:"waaaaaa",todo:[],doing:[],done:[]}
+    const project = {name:req.body.name,description:req.body.description,todo:[],doing:[],done:[]}
     User.findOne({
         username: req.body.username
       }).then(user =>{
         user.projects.push(project);
         user.save();
      });
-    console.log(req.body.username);
+})
+projects.post('/delete',(req,res)=> {
+  User.findOne({
+    username: req.body.username
+  }).then(user => {    
+    for(let i = 0; i < user.projects.length;i++){
+        if(user.projects[i].name === req.body.name && user.projects[i].description === req.body.description){
+          user.projects.splice(i,1);
+        }
+    }
+    user.save();
+ });
 })
 
 module.exports = projects

@@ -72,3 +72,50 @@ footer {
     word-wrap: break-word;
     color: #ececec;
   }
+  .project button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: #f5ba13;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+  }
+  .note {
+    background:#543864;
+    border-radius: 7px;
+    padding: 10px;
+    width: 350px;
+    margin: 16px;
+    float: left;
+    cursor: pointer;
+  }
+  .note p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .list {
+    background: #f2a365;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 20px;
+    width: 450px;
+    margin: 50px;
+    float: left;
+  }
+  .list h1 {
+    font-size: 1.1em;
+    margin-bottom: 6px;
+    color: #ececec;
+  }
+  .list p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #ececec;
+  }

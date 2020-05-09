@@ -1,32 +1,27 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {Paper,Grid,Card,CardActionArea,CardMedia,CardContent,Typography } from '@material-ui/core';
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(12),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      paddingTop: '35.25%',
+import DeleteIcon from '@material-ui/icons/Delete';
+import history from '../../history';
 
-    },
-    Cardroot: {
-        maxWidth: 345,
-      },
-      media: {
-        height: 100,
-        paddingTop: '70.25%',
-      },
-  }));
-function Project(){
-    const classes = useStyles();
+function Project(props){
+    function handleClick(){
+        props.del({name:props.name,description:props.description})
+    }
+    function showproject(){
+      localStorage.setItem('todo', props.todo)
+      localStorage.setItem('doing',props.doing)
+      localStorage.setItem('done',props.done)
 
+      history.push('projects/proj')
+    }
     return(
-        <div className= "project">
-            <h1>Project name</h1>
-            <p>Project bla bla bla bla bla</p>
+        <div className= "project" onClick = {showproject}>
+            <h1>{props.name}</h1>
+            <p>{props.description}</p>
+            <button onClick={handleClick}>
+             <DeleteIcon/>
+           </button>
 
         </div>
     );
