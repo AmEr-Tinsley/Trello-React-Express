@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper,Grid,Card,CardActionArea,CardMedia,CardContent,Typography } from '@material-ui/core';
+import {Grid,Card,CardActionArea,CardMedia,CardContent,Typography } from '@material-ui/core';
 import Zoom from '@material-ui/core/Zoom';
 import jwt_decode from 'jwt-decode'
 import history from '../history';

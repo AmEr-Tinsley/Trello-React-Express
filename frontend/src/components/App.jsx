@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
-import Header, { login } from "./Header";
+import React from "react";
+import Header from "./Header";
 import Footer from "./Footer";
 import { Grid } from "@material-ui/core";
 import Home from "./Home";
@@ -9,7 +8,7 @@ import Register from "./Register";
 import Projects from "./project_section/Projects";
 import Proj from "./project_section/Proj";
 import Learn from "./Learn";
-import { Router, Route, Link } from 'react-router-dom';
+import { Router, Route} from 'react-router-dom';
 import history from '../history';
 function App(){
     return (

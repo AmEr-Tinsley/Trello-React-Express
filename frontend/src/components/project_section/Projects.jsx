@@ -40,6 +40,7 @@ function Projects(){
         });
     }
     return(
+      
         <div>
             <Addproject add = {add}/>
             {projects.map(proj => {

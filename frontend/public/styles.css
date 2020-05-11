@@ -58,7 +58,6 @@ footer {
     width: 350px;
     margin: 50px;
     float: left;
-    cursor: pointer;
   }
   .project h1 {
     font-size: 1.1em;
@@ -83,21 +82,6 @@ footer {
     cursor: pointer;
     outline: none;
   }
-  .note {
-    background:#543864;
-    border-radius: 7px;
-    padding: 10px;
-    width: 350px;
-    margin: 16px;
-    float: left;
-    cursor: pointer;
-  }
-  .note p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
   .list {
     background: #f2a365;
     border-radius: 7px;
@@ -106,11 +90,12 @@ footer {
     width: 450px;
     margin: 50px;
     float: left;
+    min-height: 400px;
   }
   .list h1 {
     font-size: 1.1em;
     margin-bottom: 6px;
-    color: #ececec;
+    color: black;
   }
   .list p {
     font-size: 1.1em;

@@ -1,10 +1,8 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import {Paper,Grid,Card,CardActionArea,CardMedia,CardContent,Typography } from '@material-ui/core';
+
 import DeleteIcon from '@material-ui/icons/Delete';
 import history from '../../history';
-
-function Project(props){
+import ForwardIcon from '@material-ui/icons/Forward';function Project(props){
     function handleClick(){
         props.del({name:props.name,description:props.description})
     }
@@ -16,12 +14,16 @@ function Project(props){
       history.push('projects/proj')
     }
     return(
-        <div className= "project" onClick = {showproject}>
+        <div className= "project">
             <h1>{props.name}</h1>
             <p>{props.description}</p>
+            <button onClick={showproject}>
+             <ForwardIcon/>
+           </button>
             <button onClick={handleClick}>
              <DeleteIcon/>
            </button>
+           
 
         </div>
     );
