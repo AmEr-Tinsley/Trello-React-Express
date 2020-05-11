@@ -3,7 +3,7 @@ import Addproject from "./Addproject";
 import Project from './Project';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode'
-
+import Footer from '../Footer'
 function Projects(){
     var token = localStorage.usertoken;
     const decoded = jwt_decode(token);
@@ -48,6 +48,8 @@ function Projects(){
                 <Project name={proj.name} description = {proj.description} todo = {proj.todo} doing = {proj.doing} done =  {proj.done} del = {del}/>
               );
             })}
+            
+
            
         </div>
     );

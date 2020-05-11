@@ -27,9 +27,10 @@ function App(){
                     <Route exact path = '/register' component = {Register}/>
                     <Route exact path = '/projects' component = {Projects}/>
                     <Route exact path = '/learn' component = {Learn}/>
-                    <Route exact path = '/projects/proj' component = {Proj}/>
             </Grid>
             <Grid item xs={false} sm={2} />
+            <Route exact path = '/projects/proj' component = {Proj}/>
+            <Footer/>
         </Grid>
         </Grid>
         </Router>

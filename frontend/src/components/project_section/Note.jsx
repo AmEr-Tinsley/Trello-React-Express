@@ -7,9 +7,9 @@ function Note(props){
             <div ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            
+                            innerRef={provided.innerRef}
                             >
-                <div style={{background: snapshot.draggingOver?'lightgreen':'#007892', margin: '10px auto', padding: 20, textAlign: 'center', width: '85%'}}>
+                <div style={{background: snapshot.draggingOver?'lightgreen':'#007892', margin: '25px', padding: 20, textAlign: 'center', width: '85%'}}>
                     {props.item.content}
                 </div>
             </div>

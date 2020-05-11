@@ -1,7 +1,8 @@
 footer {
-    position: absolute;
+    position: fixed;
     text-align: center;
     bottom: 0;
+    z-index: auto;
     width: 100%;
     height: 2.5rem;
   }
