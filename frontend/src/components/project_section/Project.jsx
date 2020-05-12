@@ -2,11 +2,14 @@ import React from "react";
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import history from '../../history';
-import ForwardIcon from '@material-ui/icons/Forward';function Project(props){
+import ForwardIcon from '@material-ui/icons/Forward';
+function Project(props){
     function handleClick(){
         props.del({name:props.name,description:props.description})
     }
     function showproject(){
+      localStorage.setItem('description',props.description)
+      localStorage.setItem('name',props.name)
       localStorage.setItem('todo', props.todo)
       localStorage.setItem('doing',props.doing)
       localStorage.setItem('done',props.done)

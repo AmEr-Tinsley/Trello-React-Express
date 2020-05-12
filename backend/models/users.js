@@ -22,16 +22,16 @@ const UserSchema = new Schema({
   projects:[{
     name:String,
     description : String,
-    todo:[String],
-    doing:[String],
-    done:[String]
+    todo:[{content:String,id:Number}],
+    doing:[{content:String,id:Number}],
+    done:[{content:String,id:Number}]
   }],
   learn:[{
     name: String,
     description : String,
-    todo:[String],
-    doing:[String],
-    done:[String]
+    todo:[{content:String,id:Number}],
+    doing:[{content:String,id:Number}],
+    done:[{content:String,id:Number}]
   }]
 })
 

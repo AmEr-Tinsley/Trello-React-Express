@@ -13,7 +13,7 @@ app.use(
   })
 )
 
-const mongoURI = 'mongodb://localhost:27017/Database'
+const mongoURI = 'mongodb://localhost:27017/DaB'
 
 mongoose
   .connect(
