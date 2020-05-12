@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Addproject from "./Addproject";
 import Project from './Project';
 import axios from 'axios';
@@ -8,14 +8,20 @@ function Projects(){
     var token = localStorage.usertoken;
     const decoded = jwt_decode(token);
     const [projects,Setprojects] = useState([])
-    axios.post("projects/get",{username:decoded.username})
-      .then(res => {
-        var arr = res.data
+   
+
+    useEffect(() => {
+      const fetchData = async () => {
+      const result = await axios.post("projects/get",{username:decoded.username});
+   
+      var arr = result.data
 
         Setprojects(prevstate => {
           return arr ? arr.reverse() : []
         })
-    });
+      };
+      fetchData();
+  } , []);
     function add(proj){
       axios.post("projects/add",{username:decoded.username,name:proj.title,description:proj.description})
       .then(res => {
@@ -26,18 +32,17 @@ function Projects(){
       });
     }
     function del(proj){
-        axios.post("projects/delete",{username:decoded.username,name:proj.name,description:proj.description})
-        .then(res => {
-        })
-        var arr = projects
+        
+        const arr = [...projects]
         for(let i = 0 ; i < arr.length ;i++){
             if(arr[i].name === proj.name && arr[i].description === proj.description){
               arr.splice(i,1)
             }
-        }
+        }        
         Setprojects(prevstate => {
           return arr
         });
+     
     }
     return(
       

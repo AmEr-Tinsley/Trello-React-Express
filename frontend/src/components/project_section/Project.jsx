@@ -3,8 +3,15 @@ import React from "react";
 import DeleteIcon from '@material-ui/icons/Delete';
 import history from '../../history';
 import ForwardIcon from '@material-ui/icons/Forward';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode'
 function Project(props){
+    var token = localStorage.usertoken;
+    const decoded = jwt_decode(token);
     function handleClick(){
+      axios.post("projects/delete",{username:decoded.username,name:props.name,description:props.description})
+        .then(res => {
+      })
         props.del({name:props.name,description:props.description})
     }
     function showproject(){

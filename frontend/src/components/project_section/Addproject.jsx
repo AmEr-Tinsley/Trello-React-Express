@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Zoom from '@material-ui/core/Zoom';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode'
 
 function Addproject(props) {
+    
     const [isexpanded,setIsexpanded] = useState(false);
     const [form, Setform] = useState({
     title: "",
@@ -22,13 +25,15 @@ function Addproject(props) {
   }
 
   function Submit(event) {
+    event.preventDefault();
+    
+    setIsexpanded(false);
+    props.add(form)
+    
     Setform({
       title: "",
       description: ""
     });
-    setIsexpanded(false);
-    props.add(form)
-    event.preventDefault();
   }
   function expand(){
       setIsexpanded(true);
