@@ -25,8 +25,10 @@ mongoose
 
 var Users = require('./routes/Users')
 var Projects = require('./routes/Projects');
-app.use('/users', Users)
+var Learn = require('./routes/Learn');
+app.use('/users', Users);
 app.use('/projects',Projects);
+app.use('/learn',Learn);
 app.listen(port, function() {
   console.log('Server is running on port: ' + port)
 })

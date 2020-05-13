@@ -50,11 +50,11 @@ function Register(props){
     return (
         <Zoom in = {true}>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={Submit}>
-                <Input placeholder="Username" name="username" onChange={handleChange} />
+                <Input style ={{color:' #ccc'}} placeholder="Username" name="username" onChange={handleChange} />
                 <br/>
-                <Input placeholder="Email" name="email"  onChange={handleChange}/>
+                <Input style ={{color:' #ccc'}} placeholder="Email" name="email"  onChange={handleChange}/>
                 <br/>
-                <Input placeholder="password" type = "password" name="password" onChange={handleChange} />
+                <Input style ={{color:' #ccc'}} placeholder="password" type = "password" name="password" onChange={handleChange} />
                 <br/>
                 <Button type = "submit" variant="contained" color="primary">SIGN UP</Button>
             </form>

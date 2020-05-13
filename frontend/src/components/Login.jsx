@@ -46,9 +46,9 @@ function Login(props){
     return (
       <Zoom in = {true}>
       <form className={classes.root} noValidate autoComplete="off"  onSubmit={Submit}>
-          <Input placeholder="Username" name = "username" onChange={handleChange}  />
+          <Input style ={{color:' #ccc'}} placeholder="Username" name = "username" onChange={handleChange}  />
           <br/>
-          <Input type="password" placeholder="password" name = "password" onChange={handleChange} />
+          <Input style = {{color:' #ccc'}} type="password" placeholder="password" name = "password" onChange={handleChange} />
           <br/>
           <Button type = "submit" variant="contained"color="primary">SIGN IN</Button>
       </form>
