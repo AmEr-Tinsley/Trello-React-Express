@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Register(props){
+    const[err,seterr] = useState('');
     const classes = useStyles();
 
     const [form, setForm] = useState({
@@ -37,15 +38,48 @@ function Register(props){
     function Submit(event){
       event.preventDefault();
       console.log(form);
+
+      const errors = {}
+      const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+      errors.email = !form.email.match(emailformat) ?
+          "Invalid Email" : ""
+      errors.password = form.password.length < 6 ?
+            "Password should be more than 6 characters" : ""
+      errors.user = form.username.length === 0 ?
+            'err' : "";
+      var ok = false
+      for(let i = 0 ; i < form.username.length ;i++){
+          if(form.username[i]!=' '){
+            ok = true;
+          }
+      }
+      console.log(errors);
       
-      axios.post("users/register",{username:form.username,email:form.email,password:form.password})
-      .then(res => {
-        console.log(res.data);
-        
-        if(!res.data.error){
-          history.push('/login');
-       }
-  });
+      if( !ok ){
+        errors.user = 'err';
+      }
+      
+      if(errors.email === "" && errors.password === "" && errors.user ===""){
+        axios.post("users/register",{username:form.username,email:form.email,password:form.password})
+        .then(res => {
+          console.log(res.data);
+          
+          if(!res.data.error){
+            history.push('/login');
+        }});
+      }
+      else{
+        seterr(preverr =>{
+          return <div style={{color:"yellow"}}>
+              <ul>
+                <li> Username should not be empty </li>
+                <li> Email must be valid</li>
+                <li>Password length must be atleast 6</li>
+              </ul>
+              <b>Please correct what is wrong.</b>
+          </div>;
+        })
+      }
   }
     return (
         <Zoom in = {true}>
@@ -57,6 +91,8 @@ function Register(props){
                 <Input style ={{color:' #ccc'}} placeholder="password" type = "password" name="password" onChange={handleChange} />
                 <br/>
                 <Button type = "submit" variant="contained" color="primary">SIGN UP</Button>
+                <br/>
+                {err}
             </form>
         </Zoom>
        

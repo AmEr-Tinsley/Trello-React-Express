@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Login(props){
+    const [err,seterr] = useState("");
     const classes = useStyles();
     const [form, setForm] = useState({
       username: "",
@@ -41,6 +42,11 @@ function Login(props){
           localStorage.setItem('usertoken', res.data)
           history.push('/');
        }
+       else{
+          seterr(preverr=>{
+            return "Wrong Username/Password";
+          })
+       }
   });
   }
     return (
@@ -51,8 +57,12 @@ function Login(props){
           <Input style = {{color:' #ccc'}} type="password" placeholder="password" name = "password" onChange={handleChange} />
           <br/>
           <Button type = "submit" variant="contained"color="primary">SIGN IN</Button>
+          <br/>
+          <br/>
+          <p style={{color:'yellow'}}>{err}</p>
+
       </form>
-  </Zoom>
+    </Zoom>
        
     );
 }

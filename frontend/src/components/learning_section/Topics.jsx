@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps 
 import React, { useState,useEffect } from "react";
 import Addtopic from "./Addtopic";
 import Topic from './Topic';
@@ -47,9 +48,9 @@ function Topics(){
       
         <div>
             <Addtopic add = {add}/>
-            {topics.map(proj => {
+            {topics.map((proj,index) => {
               return(
-                <Topic name={proj.name} description = {proj.description} todo = {proj.todo} doing = {proj.doing} done =  {proj.done} del = {del}/>
+                <Topic key={index} name={proj.name} description = {proj.description} todo = {proj.todo} doing = {proj.doing} done =  {proj.done} del = {del}/>
               );
             })}
             

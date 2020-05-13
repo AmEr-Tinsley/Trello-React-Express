@@ -48,9 +48,9 @@ function Projects(){
       
         <div>
             <Addproject add = {add}/>
-            {projects.map(proj => {
+            {projects.map((proj,index) => {
               return(
-                <Project name={proj.name} description = {proj.description} todo = {proj.todo} doing = {proj.doing} done =  {proj.done} del = {del}/>
+                <Project key ={index} name={proj.name} description = {proj.description} todo = {proj.todo} doing = {proj.doing} done =  {proj.done} del = {del}/>
               );
             })}
             
