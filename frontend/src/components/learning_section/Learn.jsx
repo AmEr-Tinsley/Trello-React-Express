@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode'
 import Addtask from './Addtask';
 import Note from './Note'
 import axios from 'axios';
-function Proj(){
+function Learn(){
     var token = localStorage.usertoken;
     const decoded = jwt_decode(token);
     
@@ -14,7 +14,7 @@ function Proj(){
     useEffect(() => {
         const fetchData = async () => {
         const result = await axios.post(
-          'projects/projecttasks',{username:decoded.username,name:localStorage.name,description:localStorage.description}
+          'learn/topictasks',{username:decoded.username,name:localStorage.name,description:localStorage.description}
         );
      
         Setdata(result.data);
@@ -49,7 +49,7 @@ function Proj(){
             let doing = source.droppableId==='doing' ? items : data['doing']
             let done = source.droppableId==='done' ? items : data['done']
 
-            axios.post('projects/updateprojtasks',{username:decoded.username,name:localStorage.name,description:localStorage.description
+            axios.post('learn/updatetopictasks',{username:decoded.username,name:localStorage.name,description:localStorage.description
                 ,todo:todo,doing:doing,done:done
             }).then(res => {
             });
@@ -72,7 +72,7 @@ function Proj(){
             const doing = source.droppableId==='doing' ? [...sourceitems] : (destination.droppableId === 'doing' ? [...destinationitems] : [...data['doing']])
             const done = source.droppableId==='done' ? [...sourceitems] : (destination.droppableId === 'done' ? [...destinationitems] : [...data['done']])
 
-            axios.post('projects/updateprojtasks',{username:decoded.username,name:localStorage.name,description:localStorage.description
+            axios.post('learn/updatetopictasks',{username:decoded.username,name:localStorage.name,description:localStorage.description
                 ,todo:todo,doing:doing,done:done
             }).then(res => {
             });
@@ -158,4 +158,4 @@ function Proj(){
     )
 }
 
-export default Proj
+export default Learn

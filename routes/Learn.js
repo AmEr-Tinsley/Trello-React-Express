@@ -4,6 +4,13 @@ const learn = express.Router();
 
 const User = require('../models/users');
 
+learn.post('/get' , (req, res) => {
+  User.findOne({
+      username: req.body.username
+    }).then(user =>{
+       res.send(user.learn);
+    });
+})
 learn.post('/add',(req,res)=>{
     const learn = {name:req.body.name,description:req.body.description,todo:[],doing:[],done:[]}
     User.findOne({

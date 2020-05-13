@@ -6,8 +6,9 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Projects from "./project_section/Projects";
+import Topics from "./learning_section/Topics";
 import Proj from "./project_section/Proj";
-import Learn from "./Learn";
+import Learn from "./learning_section/Learn";
 import { Router, Route} from 'react-router-dom';
 import history from '../history';
 function App(){
@@ -26,10 +27,11 @@ function App(){
                     <Route exact path = '/login' component = {Login}/>
                     <Route exact path = '/register' component = {Register}/>
                     <Route exact path = '/projects' component = {Projects}/>
-                    <Route exact path = '/learn' component = {Learn}/>
+                    <Route exact path = '/learn' component = {Topics}/>
             </Grid>
             <Grid item xs={false} sm={2} />
             <Route exact path = '/projects/proj' component = {Proj}/>
+            <Route exact path = '/learn/topic' component = {Learn}/>
             <Footer/>
         </Grid>
         </Grid>
