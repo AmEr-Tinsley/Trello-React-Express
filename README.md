@@ -29,7 +29,7 @@ $ npm install
 In the main project folder :
 ```sh
 $ node server.js
-$ open another terminal
+Open another terminal
 $ cd frontend
 $ npm start
 ```
