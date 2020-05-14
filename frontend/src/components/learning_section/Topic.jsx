@@ -5,6 +5,8 @@ import history from '../../history';
 import ForwardIcon from '@material-ui/icons/Forward';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode'
+import Fab from '@material-ui/core/Fab';
+
 function Topic(props){
     var token = localStorage.usertoken;
     const decoded = jwt_decode(token);
@@ -27,13 +29,8 @@ function Topic(props){
         <div className= "project">
             <h1>{props.name}</h1>
             <p>{props.description}</p>
-            <button onClick={showtopic}>
-             <ForwardIcon/>
-           </button>
-            <button onClick={handleClick}>
-             <DeleteIcon/>
-           </button>
-           
+            <Fab onClick={showtopic}> <ForwardIcon/></Fab> 
+             <Fab onClick={handleClick}><DeleteIcon/></Fab>           
 
         </div>
     );

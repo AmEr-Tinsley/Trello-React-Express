@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 function Register(props){
     const[err,seterr] = useState('');
     const classes = useStyles();
+    const[userexist,setuserexist] = useState('');
 
     const [form, setForm] = useState({
       username: "",
@@ -37,7 +38,6 @@ function Register(props){
   }
     function Submit(event){
       event.preventDefault();
-      console.log(form);
 
       const errors = {}
       const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -46,14 +46,13 @@ function Register(props){
       errors.password = form.password.length < 6 ?
             "Password should be more than 6 characters" : ""
       errors.user = form.username.length === 0 ?
-            'err' : "";
+            "err" : "";
       var ok = false
       for(let i = 0 ; i < form.username.length ;i++){
           if(form.username[i]!=' '){
             ok = true;
           }
       }
-      console.log(errors);
       
       if( !ok ){
         errors.user = 'err';
@@ -62,11 +61,19 @@ function Register(props){
       if(errors.email === "" && errors.password === "" && errors.user ===""){
         axios.post("users/register",{username:form.username,email:form.email,password:form.password})
         .then(res => {
-          console.log(res.data);
           
           if(!res.data.error){
             history.push('/login');
-        }});
+          }
+          else{
+            setuserexist(prevuserexist=>{
+              return <div style={{color:'yellow'}}>
+              <p>This Username is already taken</p>
+              <p>Try something else !</p>
+              </div>;
+            })
+          }
+        });
       }
       else{
         seterr(preverr =>{
@@ -93,6 +100,7 @@ function Register(props){
                 <Button type = "submit" variant="contained" color="primary">SIGN UP</Button>
                 <br/>
                 {err}
+                {userexist}
             </form>
         </Zoom>
        

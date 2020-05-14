@@ -5,6 +5,8 @@ import history from '../../history';
 import ForwardIcon from '@material-ui/icons/Forward';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode'
+import Fab from '@material-ui/core/Fab';
+
 function Project(props){
     var token = localStorage.usertoken;
     const decoded = jwt_decode(token);
@@ -20,19 +22,18 @@ function Project(props){
       localStorage.setItem('todo', props.todo)
       localStorage.setItem('doing',props.doing)
       localStorage.setItem('done',props.done)
-
+      localStorage.setItem('name',props.name)
       history.push('projects/proj')
     }
     return(
         <div className= "project">
             <h1>{props.name}</h1>
             <p>{props.description}</p>
-            <button onClick={showproject}>
-             <ForwardIcon/>
-           </button>
-            <button onClick={handleClick}>
-             <DeleteIcon/>
-           </button>
+           
+            <Fab onClick={showproject}><ForwardIcon/></Fab> 
+
+            
+             <Fab onClick={handleClick}><DeleteIcon/></Fab>
            
 
         </div>

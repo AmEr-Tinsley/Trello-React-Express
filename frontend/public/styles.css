@@ -1,107 +1,107 @@
 footer {
-    position: fixed;
-    text-align: center;
-    bottom: 0;
-    z-index: auto;
-    width: 100%;
-    height: 2.5rem;
-  }
-  
-  footer p {
-    color: #ccc;
-  }
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  z-index: auto;
+  width: 100%;
+  height: 2.5rem;
+}
 
-  body {
-   
-    background-color: #00238c;
-    background-image: url("./billie-holiday.png");
-  }
+footer p {
+  color: #ccc;
+}
 
-  form.add-project {
-    position: relative;
-    width: 480px;
-    margin: 30px auto 20px auto;
-    background: #fff;
-    padding: 15px;
-    border-radius: 7px;
-    box-shadow: 0 1px 5px rgb(138, 137, 137);
-  }
-  form.add-project input,
-  form.add-project textarea {
-    width: 100%;
-    border: none;
-    padding: 4px;
-    outline: none;
-    font-size: 1.2em;
-    font-family: inherit;
-    resize: none;
-  }
-  form.add-project button {
-    position: absolute;
-    right: 18px;
-    bottom: -18px;
-    background: #f5ba13;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    outline: none;
-  }
+body {
+ 
+  background-color: #2e2b2b;
+}
 
-  .project {
-    background: #222831;
-    border-radius: 7px;
-    box-shadow: 0 2px 5px #ccc;
-    padding: 20px;
-    width: 350px;
-    margin: 50px;
-    float: left;
-  }
-  .project h1 {
-    font-size: 1.1em;
-    margin-bottom: 6px;
-    color: #f2a365;
-  }
-  .project p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    color: #ececec;
-  }
-  .project button {
-    position: relative;
-    float: right;
-    margin-right: 10px;
-    color: #f5ba13;
-    border: none;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    outline: none;
-  }
-  .list {
-    background: #f2a365;
-    border-radius: 7px;
-    box-shadow: 0 2px 5px #ccc;
-    padding: 20px;
-    width: 450px;
-    margin: 50px;
-    float: left;
-    min-height: 400px;
-  }
-  .list h1 {
-    font-size: 1.1em;
-    margin-bottom: 6px;
-    color: black;
-  }
-  .list p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    color: #ececec;
-  }
+form.add-project {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+form.add-project input,
+form.add-project textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+form.add-project button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: #f5ba13;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+.project {
+  background: #454545;
+  border-radius: 7px;
+  padding: 2%;
+  width: 30%;
+  margin: 5%;
+  float: left;
+}
+.project h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  color: #f2a365;
+}
+.project p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #d7d7d7;
+}
+.project button {
+position: relative;
+float: right;
+margin-right: 10px;
+color: #f5ba13;
+border: none;
+width: 36px;
+height: 36px;
+cursor: pointer;
+outline: none;
+background-color: #595959;
+border-radius: 20px;
+}
+.list {
+  background: #f2a365;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 20px;
+  width: 25%;
+  margin: 3%;
+  float: left;
+  min-height: 400px;
+}
+.list h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  color: black;
+}
+.list p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #ececec;
+}
