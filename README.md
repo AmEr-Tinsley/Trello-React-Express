@@ -1,7 +1,7 @@
 # Trello-React-Express
 An application that allows you to organize and prioritize your personal projects in a fun, flexible, and rewarding way!
 
-![](https://i.gyazo.com/7fcea1a6905298c8421739cec8524774.gif)
+![](https://i.gyazo.com/b595258ac4ec290022fa969bd9e92c20.gif)
 
 Try it out :  [Demo Link](https://learn-projects-app.herokuapp.com)
 
