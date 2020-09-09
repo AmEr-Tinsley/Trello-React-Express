@@ -3,7 +3,7 @@ An application that allows you to organize and prioritize your personal projects
 
 ![](https://i.gyazo.com/b595258ac4ec290022fa969bd9e92c20.gif)
 
-Try it out :  [Demo Link](https://learn-projects-app.herokuapp.com)
+Try it out :  [Demo Link](https://trello-projects-app.herokuapp.com/)
 
 ## Technologies
 - Node js
